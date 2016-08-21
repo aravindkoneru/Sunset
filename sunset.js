@@ -4,9 +4,10 @@ const dateFormat = require('dateformat');
 const timezoner = require('timezoner');
 const fs = require('fs');
 
+let api_keys = fs.readFileSync('api_keys.txt', 'utf8');
+let google_api_key = api_keys.substring(0, api_keys.indexOf("\n"));;
+let api_key_expr = api_keys.substring(api_keys.indexOf("\n")+1, api_keys.length);;
 
-let google_api_key = 'AIzaSyDTge0Q1I6U2a3ARZZma3g68ly5ULi7GJI';
-let api_key_expr = '&APPID=f76bc113223d802d5568ee1f9fc5818a';
 const current_colleges = [
 	{name: "Rutgers", id: 5101717, coord:{lon:-74.45182,lat:40.486221}},
 	{name: "UIUC", id: 4914570, coord:{lon:-88.207268, lat:40.110592}},
