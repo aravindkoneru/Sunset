@@ -1,7 +1,9 @@
-let http = require('http');
-let Q = require('q');
-let dateFormat = require('dateformat');
-let timezoner = require('timezoner');
+const http = require('http');
+const Q = require('q');
+const dateFormat = require('dateformat');
+const timezoner = require('timezoner');
+const fs = require('fs');
+
 
 let google_api_key = 'AIzaSyDTge0Q1I6U2a3ARZZma3g68ly5ULi7GJI';
 let api_key_expr = '&APPID=f76bc113223d802d5568ee1f9fc5818a';
@@ -24,10 +26,10 @@ const current_colleges = [
 	{name: "William and Mary", id: 4793846, coord:{lon:-76.707458, lat:37.270699}},
 	{name: "American", id: 4140963, coord:{lon:-77.036369, lat:38.895111}},
 	{name: "MIT", id: 4931972, coord:{lon:-71.105614, lat:42.375099}},
-	{name: "Darthmouth", id: 5087168, coord:{lon:-72.289543, lat:43.70229}},
+	{name: "Dartmouth", id: 5087168, coord:{lon:-72.289543, lat:43.70229}},
 	{name: "Princeton", id: 5102922, coord:{lon:-74.65905, lat:40.348721}},
 	{name: "U Chicago", id: 4887492, coord:{lon:-87.779221, lat:41.70142}},
-	{name: "Vanderbuilt", id: 4644585, coord:{lon:-86.784439, lat:36.16589}}
+	{name: "Vanderbilt", id: 4644585, coord:{lon:-86.784439, lat:36.16589}}
 ];
 
 function getCollegeData(colleges){
@@ -134,12 +136,12 @@ function format_time(date_obj) {
 function getSunsets(colleges){
 	let promise = getCollegeData(colleges);
 	promise.then(function(college_sunsets){
-		console.log(composeMessage(college_sunsets))
+		fs.writeFileSync('sunsets.txt', composeMessage(college_sunsets));
 	}).done();
 }
 
 getSunsets(current_colleges);
-
+console.log("DID THIS");
 
 
 
