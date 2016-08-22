@@ -7,20 +7,20 @@ function sendMessageWithLogin(email, password, chat_id, sunsets){
 	    if(err) return console.error(err);
 
 	    //store appstate for future use
-	    fs.writeFileSync('appstate.json', JSON.stringify(api.getAppState()));
+	    fs.writeFileSync(__dirname + '/auth/appstate.json', JSON.stringify(api.getAppState()));
 
 	    let message = {body: sunsets};
-	    chat_id = api.getCurrentUserID();
+	    //chat_id = api.getCurrentUserID();
 	    api.sendMessage(message, chat_id);
 	});
 }
 
 function sendMessageWithAppstate(chat_id, sunsets){
-	login({appState: JSON.parse(fs.readFileSync('appstate.json', 'utf8'))}, function callback (err, api) {
+	login({appState: JSON.parse(fs.readFileSync(__dirname + '/auth/appstate.json', 'utf8'))}, function callback (err, api) {
 	    if(err) return console.error(err);
 
 	    let message = {body: sunsets};
-	    chat_id = api.getCurrentUserID();
+	    //chat_id = api.getCurrentUserID();
 	    api.sendMessage(message, chat_id);
 	});
 }
@@ -31,7 +31,7 @@ function readSunsets(){
 }
 
 function init(chat_id){
-	let appstate = fs.readFileSync('appstate.json', 'utf8');
+	let appstate = fs.readFileSync(__dirname + '/auth/appstate.json', 'utf8');
 	let now = new Date(Date.now());
 	let expire = appstate[0].expires;
 	let sunset = readSunsets();
@@ -45,10 +45,11 @@ function init(chat_id){
 		let username = login_info.substring(0, login_info.indexOf("\n"));
 		let password = login_info.substring(login_info.indexOf("\n")+1, login_info.length);
 		
-		sendMessageWithLogin(username, password, chat_id, sunset);
+		//sendMessageWithLogin(username, password, chat_id, sunset);
 	} else{
 		console.log('sending with app state');
-		sendMessageWithAppstate(chat_id, sunset);
+		console.log(sunset);
+		//sendMessageWithAppstate(chat_id, sunset);
 	}
 
 	fs.unlinkSync('sunsets.txt');
