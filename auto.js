@@ -45,11 +45,11 @@ function init(chat_id){
 		let username = login_info.substring(0, login_info.indexOf("\n"));
 		let password = login_info.substring(login_info.indexOf("\n")+1, login_info.length);
 		
-		//sendMessageWithLogin(username, password, chat_id, sunset);
+		sendMessageWithLogin(username, password, chat_id, sunset);
 	} else{
 		console.log('sending with app state');
 		console.log(sunset);
-		//sendMessageWithAppstate(chat_id, sunset);
+		sendMessageWithAppstate(chat_id, sunset);
 	}
 
 	fs.unlinkSync('sunsets.txt');
