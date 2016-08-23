@@ -146,7 +146,7 @@ function getSunsets(colleges){
 	let promise = getCollegeData(colleges);
 	promise.then(function(college_sunsets){
 		let final_info = composeMessage(college_sunsets);
-		let sunset_message = final_info.message + "\n" + credits;
+		let sunset_message = final_info.message + "\n" + credits + "\n🌇 ";
 		fs.writeFileSync('sunsets.txt', sunset_message);
 	}).done();
 }
