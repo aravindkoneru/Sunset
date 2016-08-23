@@ -42,12 +42,10 @@ function init(chat_id){
 	if(now > expire){
 		console.log('sending with login credentials');
 		let login_info = fs.readFileSync(__dirname + '/auth/server_data.json', 'utf8');
-		
-		//sendMessageWithLogin(login_info.facebook_username, login_info.facebook_password, chat_id, sunset);
+		sendMessageWithLogin(login_info.facebook_username, login_info.facebook_password, chat_id, sunset);
 	} else{
 		console.log('sending with app state');
-		console.log(sunset);
-		//sendMessageWithAppstate(chat_id, sunset);
+		sendMessageWithAppstate(chat_id, sunset);
 	}
 
 	fs.unlinkSync('sunsets.txt');
