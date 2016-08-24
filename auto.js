@@ -45,6 +45,7 @@ function init(chat_id){
 		sendMessageWithLogin(login_info.facebook_username, login_info.facebook_password, chat_id, sunset);
 	} else{
 		console.log('sending with app state');
+		console.log(sunset);
 		sendMessageWithAppstate(chat_id, sunset);
 	}
 
