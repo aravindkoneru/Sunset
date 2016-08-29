@@ -30,11 +30,18 @@ function readSunsets(){
 	return sunsets;
 }
 
+function readCopyPasta(){
+	let pasta = fs.readFileSync('pasta_of_the_day.txt');
+	return pasta;
+}
+
 function init(chat_id){
 	let appstate = fs.readFileSync(__dirname + '/auth/appstate.json', 'utf8');
 	let now = new Date(Date.now());
 	let expire = appstate[0].expires;
 	let sunset = readSunsets();
+	let pasta = readCopyPasta();
+	let message = sunset + "\nCopy Pasta of the Day:\n" + pasta
 
 	appstate = JSON.parse(appstate);
 	expire = Date.parse(expire);
@@ -42,13 +49,14 @@ function init(chat_id){
 	if(now > expire){
 		console.log('sending with login credentials');
 		let login_info = fs.readFileSync(__dirname + '/auth/server_data.json', 'utf8');
-		sendMessageWithLogin(login_info.facebook_username, login_info.facebook_password, chat_id, sunset);
+		sendMessageWithLogin(login_info.facebook_username, login_info.facebook_password, chat_id, message);
 	} else{
 		console.log('sending with app state');
 		console.log(sunset);
-		sendMessageWithAppstate(chat_id, sunset);
+		sendMessageWithAppstate(chat_id, message);
 	}
 
+	fs.unlinkSync('pasta_of_the_day.txt');
 	fs.unlinkSync('sunsets.txt');
 }
 

@@ -33,7 +33,7 @@ const current_colleges = [
 	{name: "🍻 Dartmouth 🍻", id: 5087168, coord:{lon:-72.289543, lat:43.70229}, f_start_date: new Date(2016, 8, 12), f_end_date: new Date(2016, 10, 23), w_start_date: new Date(2017, 0, 4), w_end_date: new Date(2017, 2, 8), s_start_date: new Date(2017, 2, 27), s_end_date: new Date(2017, 5, 5)},
 	{name: "Princeton", id: 5102922, coord:{lon:-74.65905, lat:40.348721}}, //fuck princeton
 	{name: "🔫 U Chicago 🔫", id: 4887492, coord:{lon:-87.779221, lat:41.70142}}, //fuck u chicago
-	{name: "Vanderbilt", id: 4644585, coord:{lon:-86.784439, lat:36.16589}, f_start_date: new Date(2016, 7, 24), f_end_date: new Date(2016, 11, 17), s_start_date: new Date(2017, 0, 9), s_end_date: new Date(2017, 4, 4)},
+	{name: "💩 Vanderbilt 💩", id: 4644585, coord:{lon:-86.784439, lat:36.16589}, f_start_date: new Date(2016, 7, 24), f_end_date: new Date(2016, 11, 17), s_start_date: new Date(2017, 0, 9), s_end_date: new Date(2017, 4, 4)},
 	{name: "Northeastern", id:4930956, coord:{lon:-71.059769, lat:42.358429}, f_start_date: new Date(2016, 8, 7), f_end_date: new Date(2016, 11, 18), s_start_date: new Date(2017, 0, 9), s_end_date: new Date(2017, 3, 28)}
 ];
 
