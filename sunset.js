@@ -7,7 +7,6 @@ const fs = require('fs');
 let api_keys = JSON.parse(fs.readFileSync(__dirname + '/auth/server_data.json', 'utf8'));
 let google_api_key = api_keys.google_api;
 let api_key_expr = "&APPID=" + api_keys.weather_api;
-let holiday_api_key = api_keys.holiday_api;
 let credits = api_keys.credits;
 
 const current_colleges = [
