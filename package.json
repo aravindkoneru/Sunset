@@ -1,0 +1,24 @@
+{
+  "name": "sunset",
+  "version": "1.0.0",
+  "description": "a fb-messenger sunset bot",
+  "main": "auto.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aravindkoneru/Sunset.git"
+  },
+  "keywords": [
+    "sunset",
+    "fb-messenger",
+    "bot"
+  ],
+  "author": "aravindkoneru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aravindkoneru/Sunset/issues"
+  },
+  "homepage": "https://github.com/aravindkoneru/Sunset#readme"
+}
