@@ -23,7 +23,7 @@ const current_colleges = [
 	{name: "RPI", id: 5141502, coord:{lon:-73.691788, lat:42.728409}, f_start_date: new Date(2016, 7, 31), f_end_date: new Date(2016, 11, 21), s_start_date: new Date(2017, 0, 17), s_end_date: new Date(2017, 4, 12)},
 	{name: "John Hopkins", id: 4347800, coord:{lon:-76.636627,lat:39.233158}, f_start_date: new Date(2016, 8, 1), f_end_date: new Date(2016, 11, 23), s_start_date: new Date(2017, 0, 30), s_end_date: new Date(2017, 4, 18)},
 	{name: "🌴 Georgia Tech 🌴", id: 4180439, coord:{lon:-84.387978, lat:33.749001}, f_start_date: new Date(2016, 7, 22), f_end_date: new Date(2016, 11, 15)},//doesn't have spring dates
-	{name: "NYU", id: 5128581, coord:{lon:-74.005966, lat:40.714272}, f_start_date: new Date(2016, 8, 6), f_end_date: new Date(2016, 11, 24), s_start_date: new Date(2017, 0, 23), s_end_date: new Date(2017, 4, 16)},
+	{name: "💵 NYU 💵", id: 5128581, coord:{lon:-74.005966, lat:40.714272}, f_start_date: new Date(2016, 8, 6), f_end_date: new Date(2016, 11, 24), s_start_date: new Date(2017, 0, 23), s_end_date: new Date(2017, 4, 16)},
 	{name: "U Michigan", id: 4984247, coord:{lon:-83.740883, lat:42.277561}, f_start_date: new Date(2016, 8, 6), f_end_date: new Date(2016, 11, 22), s_start_date: new Date(2017, 0, 4), s_end_date: new Date(2017, 3, 27)},
 	{name: "😉 Ohio State 😉", id: 4509177, coord:{lon:-82.998787, lat:39.961182}, f_start_date: new Date(2016, 7, 23), f_end_date: new Date(2016, 11, 15), s_start_date: new Date(2017, 0, 9), s_end_date: new Date(2017, 4, 2)},
 	{name: "🐵 William and Mary 🐵", id: 4793846, coord:{lon:-76.707458, lat:37.270699}, f_start_date: new Date(2016, 7 ,23), f_end_date: new Date(2016, 11, 14), s_start_date: new Date(2017, 0, 18), s_end_date: new Date(2017, 4, 10)},
