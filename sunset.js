@@ -17,7 +17,7 @@ const current_colleges = [
 	{name: "U Pittsburgh", id: 5206379, coord:{lon:-79.995888, lat:40.44062}, f_start_date: new Date(2016, 7, 29), f_end_date: new Date(2016, 11, 18), s_start_date: new Date(2017, 0, 4), s_end_date: new Date(2017, 3, 29)},
 	{name: "U Maryland", id: 4351977, coord:{lon:-76.93692, lat:38.980671}, f_start_date: new Date(2016, 7, 29), f_end_date: new Date(2016, 11, 20), s_start_date: new Date(2017, 0, 25), s_end_date: new Date(2017, 4, 30)},
 	{name: "Bentley University", id: 4954380, coord:{lon:-71.235611, lat:42.376492}, f_start_date: new Date(2016, 7, 29), f_end_date: new Date(2016, 11, 24), s_start_date: new Date(2017, 0, 17), s_end_date: new Date(2017, 4, 9)},
-	{name: "TCNJ", id: 5097751, coord:{lon:-74.799881, lat:40.269829}, f_start_date: new Date(2016, )}, //fuck tcnj
+	{name: "TCNJ", id: 5097751, coord:{lon:-74.799881, lat:40.269829}}, //fuck tcnj
 	{name: "NJIT", id: 5097751, coord:{lon:-74.799881, lat:40.269829}, f_start_date: new Date(2016, 8, 6), f_end_date: new Date(2016, 11, 22), s_start_date: new Date(2017, 0, 17), s_end_date: new Date(2016, 4, 11)},
 	{name: "Cornell", id: 5115926, coord:{lon:-76.478554, lat:42.439522}, f_start_date: new Date(2016, 7, 23), f_end_date: new Date(2016, 11, 15), s_start_date: new Date(2017, 0, 25), s_end_date: new Date(2017, 4, 23)},
 	{name: "RPI", id: 5141502, coord:{lon:-73.691788, lat:42.728409}, f_start_date: new Date(2016, 7, 31), f_end_date: new Date(2016, 11, 21), s_start_date: new Date(2017, 0, 17), s_end_date: new Date(2017, 4, 12)},

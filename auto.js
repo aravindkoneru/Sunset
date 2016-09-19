@@ -48,6 +48,7 @@ function init(chat_id){
 
 	if(now > expire){
 		console.log('sending with login credentials');
+		console.log(message);
 		let login_info = JSON.parse(fs.readFileSync(__dirname + '/auth/server_data.json', 'utf8'));
 		sendMessageWithLogin(login_info.facebook_username, login_info.facebook_password, chat_id, message);
 	} else{
