@@ -36,6 +36,7 @@ const current_colleges = [
 	{name: "Northeastern", id:4930956, coord:{lon:-71.059769, lat:42.358429}, f_start_date: new Date(2016, 8, 7), f_end_date: new Date(2016, 11, 18), s_start_date: new Date(2017, 0, 9), s_end_date: new Date(2017, 3, 28)}
 ];
 
+//gets location of each college and sunset at each location, with appropriate time zone difference
 function getCollegeData(colleges){
 	let deffered = Q.defer();
 	let counter = 0;
@@ -58,6 +59,7 @@ function getCollegeData(colleges){
 	return deffered.promise;
 }
 
+//get sunset times for each city
 function getCityData(city_id, index){
 	let deffered = Q.defer();
 
@@ -87,6 +89,7 @@ function getCityData(city_id, index){
   return deffered.promise;
 }
 
+//get time zone difference from UTC from each college location
 function getTimeZoneOffset(pos, index){
 	let deffered = Q.defer();
 
@@ -107,6 +110,7 @@ function getTimeZoneOffset(pos, index){
 	return deffered.promise;
 }
 
+//create sunset message to be posted for the day 
 function composeMessage(colleges){
 	let now = new Date(Date.now());
 	let message = "Sunsets for " +  dateFormat(now, "dddd, mmmm dS, yyyy \n");
@@ -130,6 +134,7 @@ function composeMessage(colleges){
 	}
 }
 
+//convert Date into standard hour:minute time
 function format_time(date_obj) {
 	var hour = date_obj.getHours() - 12;
 	var minute = date_obj.getMinutes();
@@ -141,6 +146,7 @@ function format_time(date_obj) {
 	return hour + ":" + minute + "pm";
 }
 
+//write the sunset message into a text file for the bot to send
 function getSunsets(colleges){
 	let promise = getCollegeData(colleges);
 	promise.then(function(college_sunsets){
@@ -150,7 +156,7 @@ function getSunsets(colleges){
 	}).done();
 }
 
-
+//only include colleges that started instructional semesters in the message
 function collegesInSession(unfiltered_colleges){
 	let filtered = [];
 	let now = new Date(Date.now());
