@@ -2,6 +2,7 @@ const login = require("facebook-chat-api");
 const fs = require('fs');
 const group_id = 1021030684592995;
 
+//bot will send sunset message upon logging into facebook
 function sendMessageWithLogin(email, password, chat_id, sunsets){
 	login({email: email, password: password}, function callback (err, api) {
 	    if(err) return console.error(err);
@@ -15,6 +16,7 @@ function sendMessageWithLogin(email, password, chat_id, sunsets){
 	});
 }
 
+//bot will send message on command
 function sendMessageWithAppstate(chat_id, sunsets){
 	login({appState: JSON.parse(fs.readFileSync(__dirname + '/auth/appstate.json', 'utf8'))}, function callback (err, api) {
 	    if(err) return console.error(err);
@@ -25,16 +27,19 @@ function sendMessageWithAppstate(chat_id, sunsets){
 	});
 }
 
+//get sunset message that was composed
 function readSunsets(){
 	let sunsets = fs.readFileSync('sunsets.txt', 'utf8');
 	return sunsets;
 }
 
+//get reddit message that was composed
 function readCopyPasta(){
 	let pasta = fs.readFileSync('pasta_of_the_day.txt');
 	return pasta;
 }
 
+//send sunset message
 function init(chat_id){
 	let appstate = fs.readFileSync(__dirname + '/auth/appstate.json', 'utf8');
 	let now = new Date(Date.now());
@@ -57,11 +62,9 @@ function init(chat_id){
 		sendMessageWithAppstate(chat_id, message);
 	}
 
+        //clear files
 	fs.unlinkSync('pasta_of_the_day.txt');
 	fs.unlinkSync('sunsets.txt');
 }
 
 init(group_id);
-
-
-
