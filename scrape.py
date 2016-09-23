@@ -1,6 +1,7 @@
 import praw
 import codecs
 import urllib
+import re
 
 
 user_agent = ("CopyPasta 1.0")
@@ -18,6 +19,8 @@ def writeCopyPasta:
 def writeDankMeme:
 	dank_memes = request.get_subreddit("BikiniBottomTwitter").get_top(limit=1)
 	meme = next(dank_memes)
+
+	
 
 	# for meme in dank_memes:
 	# 	print meme.url
