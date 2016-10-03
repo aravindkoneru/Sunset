@@ -9,7 +9,8 @@ function sendMessageWithLogin(email, password, chat_id, sunsets){
 	    //store appstate for future use
 	    fs.writeFileSync(__dirname + '/auth/appstate.json', JSON.stringify(api.getAppState()));
 
-	    let message = {body: sunsets};
+	    let message = {body: sunsets,
+			   attachment: fs.createReadStream(__dirname + "/meme_of_day.jpg")};
 	    //chat_id = api.getCurrentUserID();
 	    api.sendMessage(message, chat_id);
 	});
@@ -19,7 +20,9 @@ function sendMessageWithAppstate(chat_id, sunsets){
 	login({appState: JSON.parse(fs.readFileSync(__dirname + '/auth/appstate.json', 'utf8'))}, function callback (err, api) {
 	    if(err) return console.error(err);
 
-	    let message = {body: sunsets};
+	    console.log("in app state sender");
+	    let message = {body: sunsets,
+	    			   attachment: fs.createReadStream(__dirname + "/meme_of_day.jpg")};
 	    //chat_id = api.getCurrentUserID();
 	    api.sendMessage(message, chat_id);
 	});
@@ -36,12 +39,13 @@ function readCopyPasta(){
 }
 
 function init(chat_id){
+	console.log('in init');
 	let appstate = fs.readFileSync(__dirname + '/auth/appstate.json', 'utf8');
 	let now = new Date(Date.now());
 	let expire = appstate[0].expires;
 	let sunset = readSunsets();
 	let pasta = readCopyPasta();
-	let message = sunset + "\nCopy Pasta of the Day:\n" + pasta
+	let message = sunset + "\nCopy Pasta of the Day:\n" + pasta + "\nMeme of the Day:";
 
 	appstate = JSON.parse(appstate);
 	expire = Date.parse(expire);
@@ -59,6 +63,7 @@ function init(chat_id){
 
 	fs.unlinkSync('pasta_of_the_day.txt');
 	fs.unlinkSync('sunsets.txt');
+	fs.unlinkSync('meme_of_day.jpg');
 }
 
 init(group_id);

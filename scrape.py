@@ -1,9 +1,7 @@
 import praw
 import codecs
 import urllib
-import re
 import requests
-
 
 user_agent = ("CopyPasta 1.0")
 request = praw.Reddit(user_agent = user_agent)
