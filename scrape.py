@@ -2,6 +2,7 @@ import praw
 import codecs
 import urllib
 import re
+import requests
 
 
 user_agent = ("CopyPasta 1.0")
@@ -19,29 +20,28 @@ def writeCopyPasta():
 def writeDankMeme():
 	dank_memes = request.get_subreddit("BikiniBottomTwitter").get_top(limit=1)
 	meme = next(dank_memes)
+	url = meme.url
+	file_name = "meme_of_day.jpg"
 
-	
+	if 'http://i.imgur.com/' in url:
+		download(file_name, url)
+	elif 'http://imgur.com/' in url:
+		image_url = 'http://i.imgur.com'
+		image_url += url[url.rfind('/'):] + ".jpg"
+		download(file_name, image_url)
+	elif 'https://i.redd.it/' in url:
+		download(file_name, url)
+	elif 'http://imgur.com/a/' in url:
+		print "Is an album, can't download the meme of the day"
 
-	# for meme in dank_memes:
-	# 	print meme.url
+def download(file_name, url):
+	response = requests.get(url)
 
-	# urllib.urlretrieve(meme.url, "00000001.jpg")
-	urllib.urlretrieve('http://i.redd.it/m37lxmz2qrnx.jpg', 
-            'google-image-search.jpg')
+	meme_file = open(file_name, 'wb')
+	for chunk in response.iter_content(4096):
+		meme_file.write(chunk)
 
-	print meme.url
+	meme_file.close()
 
-	# resource = urllib.urlopen(meme.url)
-	# output = open("file01.jpg","wb")
-	# output.write(resource.read())
-	# output.close()
-
-	# print(dank_meme)
-
-# direct image link: http://i.imgur.com/azDHl29.png
-# imgur link: http://imgur.com/azDHl29
-# imgur album link: http://imgur.com/a/WDwyW
-
-#general form: http://{i.}imgur.com/{a/}[sometext]{.png}
-
+writeCopyPasta()
 writeDankMeme()
