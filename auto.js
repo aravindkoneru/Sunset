@@ -13,6 +13,8 @@ function sendMessageWithLogin(email, password, chat_id, sunsets){
 			   attachment: fs.createReadStream(__dirname + "/meme_of_day.jpg")};
 	    //chat_id = api.getCurrentUserID();
 	    api.sendMessage(message, chat_id);
+
+	    deleteTempFiles();
 	});
 }
 
@@ -25,6 +27,8 @@ function sendMessageWithAppstate(chat_id, sunsets){
 	    			   attachment: fs.createReadStream(__dirname + "/meme_of_day.jpg")};
 	    //chat_id = api.getCurrentUserID();
 	    api.sendMessage(message, chat_id);
+
+	    deleteTempFiles();
 	});
 }
 
@@ -36,6 +40,10 @@ function readSunsets(){
 function readCopyPasta(){
 	let pasta = fs.readFileSync('pasta_of_the_day.txt');
 	return pasta;
+}
+
+function deleteTempFiles(){
+	fs.unlinkSync(__dirname + "")
 }
 
 function init(chat_id){
@@ -60,10 +68,6 @@ function init(chat_id){
 		console.log(message);
 		sendMessageWithAppstate(chat_id, message);
 	}
-
-	fs.unlinkSync('pasta_of_the_day.txt');
-	fs.unlinkSync('sunsets.txt');
-	fs.unlinkSync('meme_of_day.jpg');
 }
 
 init(group_id);
