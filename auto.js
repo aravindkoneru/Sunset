@@ -13,6 +13,8 @@ function sendMessageWithLogin(email, password, chat_id, sunsets){
 			   attachment: fs.createReadStream(__dirname + "/meme_of_day.jpg")};
 	    //chat_id = api.getCurrentUserID();
 	    api.sendMessage(message, chat_id);
+
+	    deleteTempFiles();
 	});
 }
 
@@ -20,12 +22,19 @@ function sendMessageWithAppstate(chat_id, sunsets){
 	login({appState: JSON.parse(fs.readFileSync(__dirname + '/auth/appstate.json', 'utf8'))}, function callback (err, api) {
 	    if(err) return console.error(err);
 
-	    console.log("in app state sender");
 	    let message = {body: sunsets,
 	    			   attachment: fs.createReadStream(__dirname + "/meme_of_day.jpg")};
 	    //chat_id = api.getCurrentUserID();
 	    api.sendMessage(message, chat_id);
+
+	    deleteTempFiles();
 	});
+}
+
+function deleteTempFiles(){
+	fs.unlinkSync('pasta_of_the_day.txt');
+	fs.unlinkSync('sunsets.txt');
+	fs.unlinkSync('meme_of_day.jpg');
 }
 
 function readSunsets(){
@@ -60,10 +69,6 @@ function init(chat_id){
 		console.log(message);
 		sendMessageWithAppstate(chat_id, message);
 	}
-
-	fs.unlinkSync('pasta_of_the_day.txt');
-	fs.unlinkSync('sunsets.txt');
-	fs.unlinkSync('meme_of_day.jpg');
 }
 
 init(group_id);

@@ -31,6 +31,11 @@ def writeDankMeme():
 		download(file_name, url)
 	elif 'http://imgur.com/a/' in url:
 		print "Is an album, can't download the meme of the day"
+	else:
+		try:
+			download(file_name, url)
+		except:
+			print "couldn't download because something went wrong"
 
 def download(file_name, url):
 	response = requests.get(url)
