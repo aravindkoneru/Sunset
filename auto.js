@@ -49,10 +49,6 @@ function readCopyPasta(){
     return pasta;
 }
 
-function deleteTempFiles(){
-	fs.unlinkSync(__dirname + "");
-}
-
 function init(chat_id){
     console.log('in init');
     let appstate = fs.readFileSync(__dirname + '/auth/appstate.json', 'utf8');
