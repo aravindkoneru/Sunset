@@ -3,7 +3,7 @@
 
 const login = require("facebook-chat-api");
 const fs = require('fs');
-const group_id = 1021030684592995;
+const GROUP_ID = 1021030684592995;
 
 function sendMessageWithLogin(email, password, chat_id, sunsets){
     login({email: email, password: password}, function callback (err, api) {
@@ -73,7 +73,7 @@ function init(chat_id){
     }
 }
 
-init(group_id);
+init(GROUP_ID);
 
 
 
