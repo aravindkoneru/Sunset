@@ -17,7 +17,7 @@ request = praw.Reddit(
 
 
 def write_copy_pasta():
-    copypastas = request.subreddit("copypasta").top(limit=1)
+    copypastas = request.subreddit("copypasta").top("day", limit=1)
     copypasta = next(copypastas)
 
     copypasta_file = codecs.open('pasta_of_the_day.txt', 'w', 'utf-8')
@@ -27,7 +27,7 @@ def write_copy_pasta():
 
 
 def write_dank_meme():
-    dank_memes = request.subreddit("BikiniBottomTwitter").top(limit=1)
+    dank_memes = request.subreddit("BikiniBottomTwitter").top("day", limit=1)
     meme = next(dank_memes)
     url = meme.url
     file_name = "meme_of_day.jpg"
