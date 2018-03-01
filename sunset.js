@@ -18,7 +18,7 @@ const current_colleges = [
     {name: "UIUC", id: 4914570, coord:{lon:-88.207268, lat:40.110592}, f_start_date: new Date(2016, 7, 22), f_end_date: new Date(2016, 11, 15), s_start_date: new Date(2017, 0, 17), s_end_date: new Date(2017, 4, 9)},
     {name: "UC Berkley", id: 5327684, coord:{lon:-122.272751, lat:37.87159}, f_start_date: new Date(2016, 7, 24), f_end_date: new Date(2016, 11, 16), s_start_date: new Date(2017, 0, 17), s_end_date: new Date(2017, 4, 12)},
     {name: "U Pittsburgh", id: 5206379, coord:{lon:-79.995888, lat:40.44062}, f_start_date: new Date(2016, 7, 29), f_end_date: new Date(2016, 11, 18), s_start_date: new Date(2017, 0, 4), s_end_date: new Date(2017, 3, 29)},
-    {name: "U Maryland", id: 4351977, coord:{lon:-76.93692, lat:38.980671}, f_start_date: new Date(2016, 7, 29), f_end_date: new Date(2016, 11, 20), s_start_date: new Date(2017, 0, 25), s_end_date: new Date(2017, 4, 30)},
+    {name: "U Maryland", id: 4351977, coord:{lon:-76.93692, lat:38.980671}, f_start_date: new Date(2016, 7, 29), f_end_date: new Date(2016, 11, 20), s_start_date: new Date(2017, 0, 25), s_end_date: new Date(2017, 4, 18)},
     {name: "Bentley University", id: 4954380, coord:{lon:-71.235611, lat:42.376492}, f_start_date: new Date(2016, 7, 29), f_end_date: new Date(2016, 11, 24), s_start_date: new Date(2017, 0, 17), s_end_date: new Date(2017, 4, 9)},
     {name: "TCNJ", id: 5097751, coord:{lon:-74.799881, lat:40.269829}, f_start_date: new Date(2016, 7, 30), f_end_date: new Date(2016, 11, 20), s_start_date: new Date(2017, 0, 23), s_end_date: new Date(2017, 4, 19)}, 
     {name: "NJIT", id: 5097751, coord:{lon:-74.799881, lat:40.269829}, f_start_date: new Date(2016, 8, 6), f_end_date: new Date(2016, 11, 22), s_start_date: new Date(2017, 0, 17), s_end_date: new Date(2016, 4, 11)},
@@ -187,4 +187,3 @@ function collegesInSession(unfiltered_colleges){
 
 let in_session = collegesInSession(current_colleges);
 getSunsets(in_session);
-// console.log("DID THIS");

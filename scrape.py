@@ -4,19 +4,20 @@ import codecs
 import requests
 import json
 
-with open('auth/api_info.json') as data_file:
-    data = json.load(data_file)
+with open('auth/api_info.json') as reddit_auth_file:
+    reddit_auth = json.load(reddit_auth_file)
 
-user_agent = ("CopyPasta 1.0")
+user_agent = ("SunsetBot_2.0")
 request = praw.Reddit(
-    client_id=data["client_id"],
-    client_secret=data["client_secret"],
-    username=data["username"],
-    password=data["password"],
+    client_id=reddit_auth["client_id"],
+    client_secret=reddit_auth["client_secret"],
+    username=reddit_auth["username"],
+    password=reddit_auth["password"],
     user_agent=user_agent)
 
 
 def write_copy_pasta():
+    """Get the copy pasta and write it to file."""
     copypastas = request.subreddit("copypasta").top("day", limit=1)
     copypasta = next(copypastas)
 
@@ -27,6 +28,7 @@ def write_copy_pasta():
 
 
 def write_dank_meme():
+    """Get top meme."""
     dank_memes = request.subreddit("BikiniBottomTwitter").top("day", limit=1)
     meme = next(dank_memes)
     url = meme.url
@@ -50,6 +52,7 @@ def write_dank_meme():
 
 
 def download(file_name, url):
+    """Download image and write to file."""
     response = requests.get(url)
 
     meme_file = open(file_name, 'wb')
